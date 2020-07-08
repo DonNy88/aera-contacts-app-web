@@ -256,9 +256,7 @@ export class SpinnerComponent implements OnInit {
   ngOnInit(): void {}
 
   getRandomMessage(): string {
-    const messageIndex: number = Math.floor(
-      Math.random() * Math.floor(this.loadingMassages.length)
-    );
+    const messageIndex: number = Math.floor(Math.random() * this.loadingMassages.length);
 
     return this.loadingMassages[messageIndex];
   }
