@@ -1,6 +1,6 @@
 # AreaContactsApp
 <!-- all-shields/service-version-badge:START -->
-[![aera contacts web app version](https://img.shields.io/badge/version-0.0.2-lightgray.svg?style=flat&logo=npm)]() 
+[![aera contacts web app version](https://img.shields.io/badge/version-0.0.3-lightgray.svg?style=flat&logo=npm)]() 
 <!-- all-shields/service-version-badge:END -->
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.

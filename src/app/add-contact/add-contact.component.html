@@ -1,0 +1,45 @@
+
+<a href="#" class="btn btn-success a-btn-slide-text">
+  <span>
+    <i class="d-md-none fa fa-plus" aria-hidden="true"></i><strong class="d-none d-md-block" data-title="Add"
+      data-toggle="modal" data-target="#add">Add Contact</strong>
+  </span>
+</a>
+
+<!-- Add Contact Model -->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="Heading">Add Contact</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group my-2">
+          <input class="form-control" type="text" placeholder="{{ tableHeadName }}" value="">
+        </div>
+        <div class="form-group my-2">
+          <input class="form-control" type="text" placeholder="{{ tableHeadSurname }}" value="">
+        </div>
+        <div class="form-group my-2">
+          <input class="form-control" type="text" placeholder="{{ tableHeadSurname }}" value="">
+        </div>
+        <div class="form-group my-2">
+          <input class="form-control" type="text" placeholder="{{ tableHeadEmail }}" value="">
+        </div>
+        <div class="form-group my-2">
+          <input class="form-control" type="text" placeholder="{{ tableHeadLatitude }}" value="">
+        </div>
+        <div class="form-group my-2">
+          <input class="form-control" type="text" placeholder="{{ tableHeadLongitude }}" value="">
+        </div>
+        <div class="form-group my-2">
+          <textarea rows="2" class="form-control" placeholder="{{ tableHeadOtherInfo }}"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-lg btn-block" data-dismiss="modal" aria-hidden="true"><span
+            class="fa fa-floppy-o"></span> Save</button>
+      </div>
+    </div>
+  </div>
+</div>
