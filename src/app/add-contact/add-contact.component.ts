@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddContactComponent implements OnInit {
 
-  tableHeadName = 'Name';
-  tableHeadSurname = 'Surname';
-  tableHeadAddress = 'Address';
-  tableHeadEmail = 'Email';
-  tableHeadLatitude = 'Lat';
-  tableHeadLongitude = 'Lon';
-  tableHeadPhoneNumber = 'Phone Number';
-  tableHeadOtherInfo = 'Other info';
+  readonly tableHeadName = 'Name';
+  readonly tableHeadSurname = 'Surname';
+  readonly tableHeadAddress = 'Address';
+  readonly tableHeadEmail = 'Email';
+  readonly tableHeadLatitude = 'Lat';
+  readonly tableHeadLongitude = 'Lon';
+  readonly tableHeadPhoneNumber = 'Phone Number';
+  readonly tableHeadOtherInfo = 'Other info';
 
   constructor() { }
 
