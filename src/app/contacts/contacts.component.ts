@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Contact } from '../core/model';
+import { ContactsService } from './contacts.service';
 
 @Component({
   selector: 'app-contacts',
@@ -7,18 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
 
-  tableHeadName = 'Name';
-  tableHeadSurname = 'Surname';
-  tableHeadAddress = 'Address';
-  tableHeadEmail = 'Email';
-  tableHeadLatitude = 'Lat';
-  tableHeadLongitude = 'Lon';
-  tableHeadPhoneNumber = 'Phone Number';
-  tableHeadOtherInfo = 'Other info';
+  readonly tableHeadName = 'Name';
+  readonly tableHeadSurname = 'Surname';
+  readonly tableHeadAddress = 'Address';
+  readonly tableHeadEmail = 'Email';
+  readonly tableHeadLatitude = 'Lat';
+  readonly tableHeadLongitude = 'Lon';
+  readonly tableHeadPhoneNumber = 'Phone Number';
+  readonly tableHeadOtherInfo = 'Other info';
 
-  constructor() { }
+  contacts$: Observable<Contact[]>;
+
+  constructor(private contactsService: ContactsService) {}
 
   ngOnInit(): void {
+    this.getCustomers();
+    console.log('jojdaoisjdoasijdoasijdoasijdoaisjdoa');
   }
 
+  getCustomers(): void {
+    this.contacts$ = this.contactsService.getAll();
+  }
 }

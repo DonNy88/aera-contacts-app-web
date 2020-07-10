@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="contacts$ | async as contacts" class="container">
   <div class="row">
     <table id="mytable" class="table table-responsive table-bordred table-striped my-4">
       <thead>
@@ -14,15 +14,15 @@
         <th>Delete</th>
       </thead>
       <tbody>
-        <tr>
-          <td>Mohsin</td>
-          <td>Irshad</td>
-          <td class="d-none d-xl-table-cell">CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-          <td class="d-none d-md-table-cell">isometric.mohsin@gmail.com</td>
-          <td class="d-none d-xl-table-cell">48.893</td>
-          <td class="d-none d-xl-table-cell">32.493</td>
-          <td>+923335586757</td>
-          <td class="d-none d-xxl-table-cell">CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+        <tr *ngFor="let contact of contacts">
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.surname }}</td>
+          <td class="d-none d-xl-table-cell">{{ contact.address }}</td>
+          <td class="d-none d-md-table-cell">{{ contact.email }}</td>
+          <td class="d-none d-xl-table-cell">{{ contact.latitude }}</td>
+          <td class="d-none d-xl-table-cell">{{ contact.longitude }}</td>
+          <td>{{ contact.phoneNumber }}</td>
+          <td class="d-none d-xxl-table-cell">{{ contact.otherInfo }}</td>
           <td>
             <p data-placement="top" data-toggle="tooltip" title="Edit">
               <a href="#" class="btn btn-warning a-btn-slide-text" data-title="Edit" data-toggle="modal"
