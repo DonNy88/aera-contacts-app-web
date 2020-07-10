@@ -31,13 +31,20 @@ export class ContactsComponent implements OnInit {
   }
 
   getContacts(): void {
+    this.fetchContacts();
+  }
+
+  updateContactSelected(contact: Contact): void {
+    this.contactSelected = contact;
+  }
+
+  removeContactSelected(event$: string): void {
+   this.fetchContacts();
+  }
+
+  private fetchContacts(): void {
     axios.default.get(environment.apiEndPoint).then((response) => {
       this.contacts$ = response.data;
     });
-  }
-
-  updatecCntactSelected(contact: Contact): void {
-    this.contactSelected = contact;
-    console.log(contact);
   }
 }
