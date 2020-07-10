@@ -1,20 +1,20 @@
-<div *ngIf="contacts$ | async as contacts" class="container">
+<div *ngIf="contacts$" class="container">
   <div class="row">
     <table id="mytable" class="table table-responsive table-bordred table-striped my-4">
       <thead>
-        <th>{{ tableHeadName }}</th>
-        <th>{{ tableHeadSurname }}</th>
-        <th class="d-none d-xl-table-cell">{{ tableHeadAddress }}</th>
-        <th class="d-none d-md-table-cell">{{ tableHeadEmail }}</th>
-        <th class="d-none d-xl-table-cell">{{ tableHeadLatitude }}</th>
-        <th class="d-none d-xl-table-cell">{{ tableHeadLongitude }}</th>
-        <th>{{ tableHeadPhoneNumber }}</th>
-        <th class="d-none d-xxl-table-cell">{{ tableHeadOtherInfo }}</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th class="d-none d-xl-table-cell">Address</th>
+        <th class="d-none d-md-table-cell">Email</th>
+        <th class="d-none d-xl-table-cell">Lat</th>
+        <th class="d-none d-xl-table-cell">Long</th>
+        <th>Phone Number </th>
+        <th class="d-none d-xxl-table-cell">Other Info</th>
         <th>Edit</th>
         <th>Delete</th>
       </thead>
       <tbody>
-        <tr *ngFor="let contact of contacts">
+        <tr *ngFor="let contact of contacts$">
           <td>{{ contact.name }}</td>
           <td>{{ contact.surname }}</td>
           <td class="d-none d-xl-table-cell">{{ contact.address }}</td>
@@ -24,7 +24,7 @@
           <td>{{ contact.phoneNumber }}</td>
           <td class="d-none d-xxl-table-cell">{{ contact.otherInfo }}</td>
           <td>
-            <p data-placement="top" data-toggle="tooltip" title="Edit">
+            <p data-placement="top" data-toggle="tooltip" title="Edit" (click)="updatecCntactSelected(contact)">
               <a href="#" class="btn btn-warning a-btn-slide-text" data-title="Edit" data-toggle="modal"
                 data-target="#edit">
                 <span>
@@ -66,40 +66,7 @@
 
   <!-- Edit Model -->
   <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="Heading">Edit this contact</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadName }}" value="Donald">
-          </div>
-          <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadSurname }}" value="Donald">
-          </div>
-          <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadSurname }}" value="Donald">
-          </div>
-          <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadEmail }}" value="Donald">
-          </div>
-          <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadLatitude }}" value="Donald">
-          </div>
-          <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadLongitude }}" value="Donald">
-          </div>
-          <div class="form-group my-2">
-            <textarea rows="2" class="form-control" placeholder="{{ tableHeadOtherInfo }}"></textarea>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-warning btn-lg btn-block" data-dismiss="modal" aria-hidden="true"><span
-              class="fa fa-pencil"></span> Edit</button>
-        </div>
-      </div>
-    </div>
+    <app-edit-contact [contact]="contactSelected"></app-edit-contact>
   </div>
 
 
@@ -119,5 +86,5 @@
           <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Yes</button>
           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No</button>
         </div>
-      </div>
+      </div>>
     </div>

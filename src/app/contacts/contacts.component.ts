@@ -1,35 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { Contact } from '../core/model';
-import { ContactsService } from './contacts.service';
+import { environment } from '../../environments/environment';
+import * as axios from 'axios';
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.scss']
+  styleUrls: ['./contacts.component.scss'],
 })
 export class ContactsComponent implements OnInit {
-
-  readonly tableHeadName = 'Name';
-  readonly tableHeadSurname = 'Surname';
-  readonly tableHeadAddress = 'Address';
-  readonly tableHeadEmail = 'Email';
-  readonly tableHeadLatitude = 'Lat';
-  readonly tableHeadLongitude = 'Lon';
-  readonly tableHeadPhoneNumber = 'Phone Number';
-  readonly tableHeadOtherInfo = 'Other info';
-
   contacts$: Observable<Contact[]>;
 
-  constructor(private contactsService: ContactsService) {}
+  contactSelected: Contact = {
+    address: '',
+    email: '',
+    id: '',
+    latitude: 0,
+    longitude: 0,
+    name: '',
+    otherInfo: '',
+    phoneNumber: '',
+    surname: '',
+  };
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.getCustomers();
-    console.log('jojdaoisjdoasijdoasijdoasijdoaisjdoa');
+    this.getContacts();
   }
 
-  getCustomers(): void {
-    this.contacts$ = this.contactsService.getAll();
+  getContacts(): void {
+    axios.default.get(environment.apiEndPoint).then((response) => {
+      this.contacts$ = response.data;
+    });
+  }
+
+  updatecCntactSelected(contact: Contact): void {
+    this.contactSelected = contact;
+    console.log(contact);
   }
 }

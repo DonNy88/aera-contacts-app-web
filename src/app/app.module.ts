@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { AddContactComponent } from './add-contact/add-contact.component';
+import { AddContactComponent } from './contacts/add-contact/add-contact.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ContactsComponent,
     AddContactComponent,
     SpinnerComponent,
+    EditContactComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
