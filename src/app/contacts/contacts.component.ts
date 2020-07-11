@@ -38,8 +38,18 @@ export class ContactsComponent implements OnInit {
     this.contactSelected = contact;
   }
 
-  removeContactSelected(event$: string): void {
-   this.fetchContacts();
+  remove(): void {
+    axios.default
+      .delete(environment.apiEndPoint, {
+        params: {
+          id: this.contactSelected.id,
+        },
+      })
+      .then(() => this.fetchContacts());
+  }
+
+  update(): void {
+    axios.default.put(environment.apiEndPoint, this.contactSelected);
   }
 
   private fetchContacts(): void {
@@ -47,4 +57,6 @@ export class ContactsComponent implements OnInit {
       this.contacts$ = response.data;
     });
   }
+
+
 }

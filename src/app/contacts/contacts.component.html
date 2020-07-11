@@ -66,11 +66,60 @@
 
   <!-- Edit Model -->
   <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <app-edit-contact [contact]="contactSelected"></app-edit-contact>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="Heading">Edit this contact</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group my-2">
+            <input class="form-control" type="text" placeholder="Name" [(ngModel)]="contactSelected.name">
+          </div>
+          <div class="form-group my-2">
+            <input class="form-control" type="text" placeholder="Surname" [(ngModel)]="contactSelected.surname">
+          </div>
+          <div class="form-group my-2">
+            <input class="form-control" type="text" placeholder="Address" [(ngModel)]="contactSelected.address">
+          </div>
+          <div class="form-group my-2">
+            <input class="form-control" type="text" placeholder="Email" [(ngModel)]="contactSelected.email">
+          </div>
+          <div class="form-group my-2">
+            <input class="form-control" type="text" placeholder="Lat" [(ngModel)]="contactSelected.latitude">
+          </div>
+          <div class="form-group my-2">
+            <input class="form-control" type="text" placeholder="Long" [(ngModel)]="contactSelected.longitude">
+          </div>
+          <div class="form-group my-2">
+            <textarea rows="2" class="form-control" placeholder="Other Info" [(ngModel)]="contactSelected.otherInfo"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning btn-lg btn-block" data-dismiss="modal" aria-hidden="true" (click)="update()"><span
+              class="fa fa-pencil"></span> Edit</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 
   <!-- Delete Model -->
   <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <app-delete-contact [contact]="contactSelected" (contactIdToDelete)="removeContactSelected($event)"></app-delete-contact>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger">
+            Are you sure you want to delete this Record?
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="remove()">Yes</button>
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
   </div>
