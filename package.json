@@ -1,6 +1,6 @@
 {
   "name": "area-contacts-app",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
