@@ -43,7 +43,8 @@ export class ContactsComponent implements OnInit {
     axios.default.put(environment.apiEndPoint, this.contactSelected);
   }
 
-  addCommentListener($event: void): void {
+  addContactListener($event: void): void {
+    console.log('hohoho');
     this.fetchContacts();
   }
 
@@ -62,6 +63,7 @@ export class ContactsComponent implements OnInit {
   private fetchContacts(): void {
     axios.default.get(environment.apiEndPoint).then((response) => {
       this.contacts$ = response.data;
+      console.log(response.data);
     });
   }
 
