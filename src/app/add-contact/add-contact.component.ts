@@ -9,7 +9,7 @@ import * as axios from 'axios';
   styleUrls: ['./add-contact.component.scss'],
 })
 export class AddContactComponent implements OnInit {
-  @Output() addCommentEmitter: EventEmitter<void> = new EventEmitter();
+  @Output() addContactEmitter: EventEmitter<void> = new EventEmitter();
 
   contactToAdd: Contact = new Contact();
 
@@ -22,7 +22,7 @@ export class AddContactComponent implements OnInit {
       .put(environment.apiEndPoint, this.contactToAdd)
       .then((elem) => {
         this.contactToAdd = new Contact();
-        this.addCommentEmitter.emit();
+        this.addContactEmitter.emit();
       });
   }
 }

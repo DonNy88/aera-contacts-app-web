@@ -43,8 +43,20 @@ export class ContactsComponent implements OnInit {
     axios.default.put(environment.apiEndPoint, this.contactSelected);
   }
 
-  addCommentListener($event): void {
+  addCommentListener($event: void): void {
     this.fetchContacts();
+  }
+
+  textToSearchListener($event: string): void {
+    axios.default.get(environment.apiEndPoint + '/search', {
+      params: {
+        text: $event,
+        phoneNumber: $event
+      }
+    }).then(filtredContacts => {
+      this.contacts$ = filtredContacts.data;
+      console.log(filtredContacts.data);
+    });
   }
 
   private fetchContacts(): void {

@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <a class="navbar-brand mb-3" [routerLink]="''">Aera Contacts</a>
       <div class="mr-auto">
-        <app-search></app-search>
+        <app-search (textToSearchEmitter)="textToSearchListener($event)"></app-search>
       </div>
       <div class="ml-auto mb-auto">
         <app-add-contact (addCommentEmitter)="addCommentListener($event)"></app-add-contact>
