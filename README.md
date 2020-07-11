@@ -2,29 +2,49 @@
 <!-- all-shields/service-version-badge:START -->
 [![aera contacts web app version](https://img.shields.io/badge/version-0.0.4-lightgray.svg?style=flat&logo=npm)]() 
 <!-- all-shields/service-version-badge:END -->
+---
+Simple Contact web app.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+## 📝 Table of Contents
 
-## Development server
+- [Getting Started](#getting_started)
+- [Deployment](#deployment)
+- [Usage](#usage)
+- [Built Using](#built_using)
+- [TODO](../TODO.md)
+- [Authors](#authors)
+<!-- - [Acknowledgments](#acknowledgement) -->
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 🏁 Getting Started <a name = "getting_started"></a>
 
-## Code scaffolding
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+For running this Angular web app you need [Node.js](https://nodejs.org/en/about/) and [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1, Node.js. Below how yon can install these things.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Node.js [Link](https://nodejs.org/dist/v12.18.2/node-v12.18.2.pkg)
+- Angular 10 [Link](https://github.com/angular/angular-cli)
 
-## Running unit tests
+## 🎈 Usage <a name="usage"></a>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+For run this localy you can use this command:
 
-## Running end-to-end tests
+```bash
+npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## 🚀 Deployment <a name = "deployment"></a>
 
-## Further help
+See [TODO.md](./TODO.md) file.
+## ✍️ Authors <a name = "authors"></a>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- [@DonNya88](https://github.com/DonNy88) - Initial work
+
+<!-- See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- References -->
