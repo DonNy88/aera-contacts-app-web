@@ -1,30 +1,43 @@
-<div class="container">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand mb-3" [routerLink]="''">Aera Contacts</a>
+      <div class="mr-auto">
+        <app-search (textToSearchEmitter)="textToSearchListener($event)"></app-search>
+      </div>
+      <div class="ml-auto mb-auto">
+        <app-add-contact (addCommentEmitter)="addCommentListener($event)"></app-add-contact>
+      </div>
+    </div>
+  </nav>
+</header>
+<div *ngIf="contacts$" class="container">
   <div class="row">
     <table id="mytable" class="table table-responsive table-bordred table-striped my-4">
       <thead>
-        <th>{{ tableHeadName }}</th>
-        <th>{{ tableHeadSurname }}</th>
-        <th class="d-none d-xl-table-cell">{{ tableHeadAddress }}</th>
-        <th class="d-none d-md-table-cell">{{ tableHeadEmail }}</th>
-        <th class="d-none d-xl-table-cell">{{ tableHeadLatitude }}</th>
-        <th class="d-none d-xl-table-cell">{{ tableHeadLongitude }}</th>
-        <th>{{ tableHeadPhoneNumber }}</th>
-        <th class="d-none d-xxl-table-cell">{{ tableHeadOtherInfo }}</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th class="d-none d-xl-table-cell">Address</th>
+        <th class="d-none d-md-table-cell">Email</th>
+        <th class="d-none d-xl-table-cell">Lat</th>
+        <th class="d-none d-xl-table-cell">Long</th>
+        <th>Phone Number </th>
+        <th class="d-none d-xxl-table-cell">Other Info</th>
         <th>Edit</th>
         <th>Delete</th>
       </thead>
       <tbody>
-        <tr>
-          <td>Mohsin</td>
-          <td>Irshad</td>
-          <td class="d-none d-xl-table-cell">CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-          <td class="d-none d-md-table-cell">isometric.mohsin@gmail.com</td>
-          <td class="d-none d-xl-table-cell">48.893</td>
-          <td class="d-none d-xl-table-cell">32.493</td>
-          <td>+923335586757</td>
-          <td class="d-none d-xxl-table-cell">CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+        <tr *ngFor="let contact of contacts$">
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.surname }}</td>
+          <td class="d-none d-xl-table-cell">{{ contact.address }}</td>
+          <td class="d-none d-md-table-cell">{{ contact.email }}</td>
+          <td class="d-none d-xl-table-cell">{{ contact.latitude }}</td>
+          <td class="d-none d-xl-table-cell">{{ contact.longitude }}</td>
+          <td>{{ contact.phoneNumber }}</td>
+          <td class="d-none d-xxl-table-cell">{{ contact.otherInfo }}</td>
           <td>
-            <p data-placement="top" data-toggle="tooltip" title="Edit">
+            <p data-placement="top" data-toggle="tooltip" title="Edit" (click)="updateContactSelected(contact)">
               <a href="#" class="btn btn-warning a-btn-slide-text" data-title="Edit" data-toggle="modal"
                 data-target="#edit">
                 <span>
@@ -35,7 +48,7 @@
             </p>
           </td>
           <td>
-            <p data-placement="top" data-toggle="tooltip" title="Delete">
+            <p data-placement="top" data-toggle="tooltip" title="Delete" (click)="updateContactSelected(contact)">
               <a href="#" class="btn btn-danger a-btn-slide-text" data-title="Delete" data-toggle="modal"
                 data-target="#delete">
                 <span>
@@ -73,33 +86,34 @@
         </div>
         <div class="modal-body">
           <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadName }}" value="Donald">
+            <input class="form-control" type="text" placeholder="Name" [(ngModel)]="contactSelected.name">
           </div>
           <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadSurname }}" value="Donald">
+            <input class="form-control" type="text" placeholder="Surname" [(ngModel)]="contactSelected.surname">
           </div>
           <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadSurname }}" value="Donald">
+            <input class="form-control" type="text" placeholder="Address" [(ngModel)]="contactSelected.address">
           </div>
           <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadEmail }}" value="Donald">
+            <input class="form-control" type="text" placeholder="Email" [(ngModel)]="contactSelected.email">
           </div>
           <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadLatitude }}" value="Donald">
+            <input class="form-control" type="number" placeholder="Lat" [(ngModel)]="contactSelected.latitude">
           </div>
           <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="{{ tableHeadLongitude }}" value="Donald">
+            <input class="form-control" type="number" placeholder="Long" [(ngModel)]="contactSelected.longitude">
           </div>
           <div class="form-group my-2">
-            <textarea rows="2" class="form-control" placeholder="{{ tableHeadOtherInfo }}"></textarea>
+            <textarea rows="2" class="form-control" placeholder="Other Info" [(ngModel)]="contactSelected.otherInfo"></textarea>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning btn-lg btn-block" data-dismiss="modal" aria-hidden="true"><span
+          <button type="button" class="btn btn-warning btn-lg btn-block" data-dismiss="modal" aria-hidden="true" (click)="update()"><span
               class="fa fa-pencil"></span> Edit</button>
         </div>
       </div>
     </div>
+
   </div>
 
 
@@ -116,8 +130,9 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="remove()">Yes</button>
           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No</button>
         </div>
       </div>
     </div>
+  </div>
