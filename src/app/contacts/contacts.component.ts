@@ -12,21 +12,12 @@ import * as axios from 'axios';
 export class ContactsComponent implements OnInit {
   contacts$: Observable<Contact[]>;
 
-  contactSelected: Contact = {
-    address: '',
-    email: '',
-    id: '',
-    latitude: 0,
-    longitude: 0,
-    name: '',
-    otherInfo: '',
-    phoneNumber: '',
-    surname: '',
-  };
+  contactSelected: Contact;
 
   constructor() {}
 
   ngOnInit(): void {
+    this.contactSelected = new Contact();
     this.getContacts();
   }
 
@@ -50,6 +41,10 @@ export class ContactsComponent implements OnInit {
 
   update(): void {
     axios.default.put(environment.apiEndPoint, this.contactSelected);
+  }
+
+  addCommentListener($event): void {
+    this.fetchContacts();
   }
 
   private fetchContacts(): void {

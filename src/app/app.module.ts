@@ -7,9 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { AddContactComponent } from './contacts/add-contact/add-contact.component';
+import { AddContactComponent } from './add-contact/add-contact.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { EditContactComponent } from './contacts/edit-contact/edit-contact.compo
     SearchComponent,
     ContactsComponent,
     AddContactComponent,
-    SpinnerComponent,
-    EditContactComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

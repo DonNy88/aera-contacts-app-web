@@ -1,3 +1,16 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand mb-3" [routerLink]="''">Aera Contacts</a>
+      <div class="mr-auto">
+        <app-search></app-search>
+      </div>
+      <div class="ml-auto mb-auto">
+        <app-add-contact (addCommentEmitter)="addCommentListener($event)"></app-add-contact>
+      </div>
+    </div>
+  </nav>
+</header>
 <div *ngIf="contacts$" class="container">
   <div class="row">
     <table id="mytable" class="table table-responsive table-bordred table-striped my-4">
@@ -85,10 +98,10 @@
             <input class="form-control" type="text" placeholder="Email" [(ngModel)]="contactSelected.email">
           </div>
           <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="Lat" [(ngModel)]="contactSelected.latitude">
+            <input class="form-control" type="number" placeholder="Lat" [(ngModel)]="contactSelected.latitude">
           </div>
           <div class="form-group my-2">
-            <input class="form-control" type="text" placeholder="Long" [(ngModel)]="contactSelected.longitude">
+            <input class="form-control" type="number" placeholder="Long" [(ngModel)]="contactSelected.longitude">
           </div>
           <div class="form-group my-2">
             <textarea rows="2" class="form-control" placeholder="Other Info" [(ngModel)]="contactSelected.otherInfo"></textarea>
