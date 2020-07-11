@@ -1,7 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { environment } from '../../environments/environment';
-import * as axios from 'axios';
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -19,6 +16,7 @@ export class SearchComponent implements OnInit {
 
   search(): void {
     this.textToSearchEmitter.emit(this.textToSearch);
+    this.textToSearch = '';
   }
 
 }
