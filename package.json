@@ -48,7 +48,7 @@
     "@angular/router": "~10.0.2",
     "@types/axios": "^0.14.0",
     "angular-pipes": "^10.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "bootstrap": "^5.0.0-alpha1",
     "font-awesome": "^4.7.0",
     "popper.js": "^1.16.1",
